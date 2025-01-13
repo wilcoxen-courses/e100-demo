@@ -7,6 +7,7 @@
 import re
 
 infile = 'sample.txt'
+outfile = 'counts.txt'
 
 #
 #  Set up a regular expression for removing punctuation
@@ -45,5 +46,9 @@ for line in ifh:
 #  Print out the results sorted by frequency
 #
             
+ofh = open(outfile,'w')
+
 for word in sorted(counts,key=counts.get, reverse=True):
-    print(word,counts[word])
+    print(word,counts[word],file=ofh)
+
+ofh.close()
